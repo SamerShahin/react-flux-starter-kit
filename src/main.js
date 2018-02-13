@@ -4,6 +4,7 @@ var React = require('react');
 var Home = require('./components/homePage.js');
 var About = require('./components/about/aboutPage.js');
 var Header = require('./components/common/header.js');
+var Authors = require('./components/authors/authorPage.js');
 
 (function (win) {
     //we added all our code in this function so that its variables become local and not global ,
@@ -16,6 +17,7 @@ var Header = require('./components/common/header.js');
             //Some minimal dummass routing method
             switch (this.props.route){
                 case 'about': Child = About; break;
+                case 'authors': Child = Authors; break;
                 default: Child = Home;
             }
             return (
