@@ -14,11 +14,11 @@ var AuthorPage = React.createClass({
     },
     componentWillMount: function () {
         //subscribe to the onChange event when the element is being created
-        AuthorStore.addChangeListener(this._onChange());
+        AuthorStore.addChangeListener(this._onChange);
     },
     componentWillUnmount: function () {
         //onSubscribe from the onChange event when the element is being destroyed
-        AuthorStore.removeChangeListener(this._onChange());
+        AuthorStore.removeChangeListener(this._onChange);
     },
     _onChange: function () {
       this.setState({authors: AuthorStore.getAllAuthors()});

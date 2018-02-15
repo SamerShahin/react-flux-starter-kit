@@ -10,7 +10,7 @@ var Header = React.createClass({
           <nav className="navbar navbar-default">
               <div className="container-fluid">
                   <a href="/" className="navbar-brand">
-                    <img src="images/pluralsight-logo.png" height="36px" style={{'margin-top': '-7px'}} />
+                    <img src="images/pluralsight-logo.png" height="36px" style={{'marginTop': '-7px'}} />
                   </a>
                   <ul className="nav navbar-nav">
                       {/*the Link component is rendered to an 'a' element in the dom, and it is easier to use and more understandable .*/}

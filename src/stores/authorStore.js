@@ -2,11 +2,11 @@
 
 var Dispatcher = require('../dispatcher/appDispatcher');
 var ActionTypes = require('../constants/actionTypes');
-var _ = require('lodash');
-var EventEmitter = require('events').EventEmitter;
+var EventEmitter = require('events');
 /*The Object.assign() method is used to copy the values of all enumerable own properties from one or more source objects to a target object.
  It will return the target object.*/
 var assign = require('object-assign');
+var _ = require('lodash');
 var CHANGE_EVENT = 'change';
 
 var _authors = [];
@@ -41,6 +41,12 @@ Dispatcher.register(function (action) {
             var existingAuthor = _.find(_authors, {id: action.author.id});
             var existingAuthorIndex = _.indexOf(_authors, existingAuthor);
             _authors.splice(existingAuthorIndex, 1, action.author);
+            AuthorStore.emitChange();
+            break;
+        case ActionTypes.DELETE_AUTHOR :
+            var authorToDelete = _.find(_authors, {id: action.id});
+            var authorToDeleteIndex = _.indexOf(_authors, authorToDelete);
+            _authors.splice(authorToDeleteIndex, 1);
             AuthorStore.emitChange();
             break;
         case ActionTypes.INITIALIZE:
